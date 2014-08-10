@@ -2,8 +2,7 @@ Junito
 ============
 A Junit Test Orderer
 --------------
-
-JUnit does not specify or ensure the execution order of test method invocations. 
+Pronounced [jay-yoo-nee-toh], Junito allows you to order test executions in a specific manner. There are often times, primarily in integration testing, that an ordered test is useful. Sometimes tests will modify information that are later required in tests. However, JUnit does not specify or ensure the execution order of test method invocations. 
 
 JUnit 4.11 allows for specifying execution order according to a predefined list of MethodSorters, but even these are fairly inflexible. JUnito provides a mechanism for ensuring that tests are run in a specific order defined by the test writer.
 
