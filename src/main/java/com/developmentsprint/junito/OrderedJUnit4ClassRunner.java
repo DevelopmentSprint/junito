@@ -1,4 +1,4 @@
-package org.junit.ocd;
+package com.developmentsprint.junito;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public class OrderedJUnit4ClassRunner extends BlockJUnit4ClassRunner {
 
     @Override
     protected List<FrameworkMethod> computeTestMethods() {
-        return TestOrderer.orderMethods(computeTestMethods());
+        return TestOrderer.orderMethods(super.computeTestMethods());
     }
 
 }

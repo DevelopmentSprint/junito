@@ -1,4 +1,4 @@
-package org.junit.ocd;
+package com.developmentsprint.junito;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,7 +19,7 @@ public final class TestOrderer {
         // sort the annotated methods to the front of the list
         Collections.sort(copy, new Comparator<FrameworkMethod>() {
             public int compare(FrameworkMethod frameworkMethod, FrameworkMethod otherFrameworkMethod) {
-                OrderedTest a = otherFrameworkMethod.getAnnotation(OrderedTest.class);
+                Order a = otherFrameworkMethod.getAnnotation(Order.class);
                 if (a != null) {
                     return 1;
                 } else {
@@ -31,10 +31,10 @@ public final class TestOrderer {
         // sort the annotated methods
         Collections.sort(copy, new Comparator<FrameworkMethod>() {
             public int compare(FrameworkMethod frameworkMethod, FrameworkMethod otherFrameworkMethod) {
-                OrderedTest a1 = frameworkMethod.getAnnotation(OrderedTest.class);
-                OrderedTest a2 = otherFrameworkMethod.getAnnotation(OrderedTest.class);
+                Order a1 = frameworkMethod.getAnnotation(Order.class);
+                Order a2 = otherFrameworkMethod.getAnnotation(Order.class);
                 if (a1 != null && a2 != null) {
-                    return a1.value() > a2.value() ? +1 : a1.value() < a2.value() ? -1 : 0;
+                    return a1.weight() > a2.weight() ? +1 : a1.weight() < a2.weight() ? -1 : 0;
                 } else {
                     return 0;
                 }
